@@ -14,19 +14,19 @@ window.addEventListener("load", function(){
     const usuarioSalvo = localStorage.getItem("emailSalvo");
     const senhaSalva = localStorage.getItem("senhaSalva");
 
-    const secaoRegistro = document.getElementById("registro");
+    const cena = document.querySelector(".cena");
     const painelPrincipal = document.getElementById("display");
 
     if  (usuarioSalvo && senhaSalva){
         console.log("Crendenciais encontradas! Pulando tela de registro.");
         
-        if (secaoRegistro) secaoRegistro.classList.add("escondido");
+        if (cena) cena.classList.add("escondido");
         
         if (painelPrincipal) painelPrincipal.classList.remove("escondido");
     }   else {
             console.log("Nenhuma credencial encontrada. Mostrando tela de registro.");
 
-        if (secaoRegistro) secaoRegistro.classList.remove("escondido");
+        if (cena) cena.classList.remove("escondido");
         if (painelPrincipal) painelPrincipal.classList.add("escondido");
     }
 });
@@ -45,9 +45,8 @@ document.getElementById("btn_cadastro").addEventListener("click", function(event
     localStorage.setItem("senhaSalva", pswrdUser);
     alert("Cadastro realizado com sucesso!");
 
-    //troca de tela
-    document.getElementById("registro").classList.add("escondido");
-    document.getElementById("login").classList.remove("escondido");
+    //troca de tela: vira o circulo para a face do login
+    girar();
 });
 
 //login
@@ -58,7 +57,7 @@ document.getElementById("btn_login").addEventListener("click", function(event){
     const emailReal = localStorage.getItem("emailSalvo");
     const senhaReal = localStorage.getItem("senhaSalva");
     if (loguser == emailReal && logpswrd == senhaReal) {
-        document.getElementById("login").classList.add("escondido");
+        document.querySelector(".cena").classList.add("escondido");
         document.getElementById("display").classList.remove("escondido");
     } else {
         alert("Email ou senha incorretos!");
@@ -69,7 +68,8 @@ document.getElementById("btn_login").addEventListener("click", function(event){
 document.getElementById("btn_sair").addEventListener("click", function(event){
     event.preventDefault();
     document.getElementById("display").classList.add("escondido");
-    document.getElementById("login").classList.remove("escondido");
+    document.querySelector(".cena").classList.remove("escondido");
+    document.getElementById("circulo").classList.add("girado"); // ja volta na cara do login
     //limpa os campos de login
     document.getElementById("log_user").value = "";
     document.getElementById("log_pswrd").value = "";
@@ -198,3 +198,6 @@ document.addEventListener("DOMContentLoaded", function() {
         painelTemas.classList.toggle("escondido");
     });
 });
+function girar(){
+    document.getElementById("circulo").classList.toggle("girado");
+}

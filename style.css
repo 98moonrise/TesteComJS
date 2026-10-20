@@ -204,25 +204,6 @@ button{
   margin: 20px 0;
   text-align: center;
 }
-#registro, 
-#login{
-    /* Flexbox vertical centralizado */
-    display: flex;
-    flex-direction: column;
-    align-items: center;       /* Centraliza os filhos horizontalmente no meio exato */
-    justify-content: center;   /* Centraliza verticalmente caso haja espaço */
-    
-    /* Tamanhos proporcionais */
-    width: 320px;              
-    margin: 30px auto;         /* Centraliza o bloco na página */
-    padding: 40px 20px;        /* Espaço interno em cima/baixo e laterais */
-    
-    /* Estética Neon */
-    border: 2px solid var(--cor-principal, #ff0055);
-    border-radius: 16px;
-    background-color: rgba(0, 0, 0, 0.9);
-    box-shadow: 0 0 15px var(--cor-principal, #ff0055);
-}
 
 /* Força todos os textos e rótulos de dentro a ficarem no centro exato */
 #registro label, 
@@ -264,4 +245,39 @@ button{
     display: block;
     margin-left: auto;
     margin-right: auto;
+}
+.cena{
+  perspective: 1200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+.circulo{
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  border: 3px solid var(--cor-principal);
+  box-shadow: 0 15px 25px var(--cor-principal),
+              inset 0 0 40px rgba(0, 0, 0, 0.9);
+  background: #0a0a0a;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.9s cubic-bezier(.4,.1,.2,1);
+}
+.circulo.girado{
+  transform: rotateY(180deg);
+}
+.face{
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  backface-visibility: hidden;
+}
+.verso {
+  transform: rotateY(180deg);
 }
