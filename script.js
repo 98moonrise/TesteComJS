@@ -4,6 +4,8 @@ window.addEventListener("load", function() {
     const senhaCadastrada = localStorage.getItem("senhaSalva");
 
     if (emailCadastrado && senhaCadastrada) {
+        document.getElementById("registro").classList.add("escondido");
+        document.getElementById("login").classList.remove("escondido");
         document.getElementById("log_user").value = emailCadastrado;
         document.getElementById("log_pswrd").value = senhaCadastrada;
     }
