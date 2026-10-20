@@ -20,7 +20,7 @@
         <button class="btnTema" style="background-color: #2323ff; color: #000;" onclick="mudarTema('#2323ff')">Azul neon</button>
         <button class="btnTema" style="background-color: #8a00c4; color: #fff;" onclick="mudarTema('#8a00c4')">Roxo neon</button>   
     </div>
-    <div id="registro" class="">
+    <div id="registro" class="registro">
     <form>
         <label for="create_user" id="label_for_create_user">Crie seu usuario/email</label>
         <input type="text" id="create_user" placeholder="Ex: seu.email123@gmail.com">
@@ -29,7 +29,7 @@
         <button id="btn_cadastro">Criar</button>
     </form>
     </div>
-    <div id="login" class="escondido">
+    <div id="login" class="login escondido">
         <form>
             <label for="log_ser" id="label_for_log_user">Insira seu usuario/email</label>
             <input type="text"  id="log_user" placeholder="Ex: seu.email123@gmai.com">
@@ -38,7 +38,7 @@
             <button id="btn_login">Entrar</button>
         </form>
     </div>
-    <div id="display" class="escondido">
+    <div id="display" class="display escondido">
         <main id="sexta">
             <section class="blocoNotas">
     <div class="cartao">
@@ -54,6 +54,68 @@
         <div id="containerNotas" class="containerNotas escondido"></div>
     </div>
 </section>
+    <h1>
+        Bem vindo à Registro de Investimentos
+    </h1>
+    <section>
+        <p>
+            Eu acho que vou fazer aqui um registro mensal de investimentos.
+        </p>
+        <h3>
+            Outubro
+        </h3>
+        <ul>
+            <li>
+                Aportes feitos
+            </li>
+            <li>
+                31 cotas de MXRF11 - R$290,05
+            </li>
+        </ul>
+       
+</section>
+
+<section class="calculadora-dy">
+    <div class="cartao">
+    <p>
+        Tentativa de criar calculadora dy
+    </p>
+    <label for="preco">Valor atual do ativo (R$)</label>
+    <input type="number"    id="preco"  placeholder="EX: 9,37"       step="0.01">
+    <label for="dividendo">Dividendos pagos nos ultimos 12 meses</label>
+    <input type="number"    id="dividendo"     placeholder="EX: 0,10"       step="0.01">
+    <button id="calculadora" onclick="calcularDY()">Calcular DY</button>
+    <p id="resultado-dy">Veja seu resultado aqui!</p>   
+</div>
+</section>
+<section class="calculadora-pvp">
+     <div class="cartao">
+    <p>
+        Tentativa de criar calculadora P/VP
+    </p>
+    <label for="preco-pvp"> Preco atual do Ativo (R$)</label>
+    <input type="text"    id="preco-pvp"  placeholder="EX: 9.37"       step="0.01">
+    <label for="vp">Valor Patrimonial (por cota)</label>
+    <input type="text"    id="vp"     placeholder="EX: 10"       step="0.01">
+    <button id="calculadora2" onclick="calcularPVP()">Calcular P/VP</button>
+    <p id="resultado-pvp"> Veja seu resultado aqui!</p>   
+</div>
+</section>
+<section class="tabela">
+    <div class="cartao">
+    <h2>Minha carteira (local)</h2>
+    <label for="ticker">Ativo: (Ex: MXRF11)</label>
+    <input type="text" id="ticker" placeholder="Ex: MXRF11">
+    <label for="qtd">Quantidade de cotas:</label>
+    <input type="text" id="qtd" placeholder="Ex: 100">
+    <label for="pm">Preco medio (R$)</label>
+    <input type="text" id="pm" placeholder="Ex: R$9,37">
+    <button id="calculadora" onclick="adicionarAtivo()">Adicionar ativo</button>
+    <div id="lista-carteira" style="width: 100%; margin-top: 15px;">
+    </div>
+</div>
+</section>
+ <a href="https://investidor10.com.br/wallet/public/2527877?h=db996c9b252bf837920cd2985f7a57c1e7edb8bf" target="_blank" class="botao-link-externo">Carteira no Investidor10</a>
 </main>
 <button id="btn_sair">Encerrar sessao</button>
     </div>

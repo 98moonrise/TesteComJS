@@ -25,6 +25,9 @@ body {
   line-height: 2;
   border: 5px double var(--cor-principal);
   border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 input  {
    margin: 15px auto;
@@ -200,4 +203,65 @@ button{
 .painelTemas{
   margin: 20px 0;
   text-align: center;
+}
+#registro, 
+#login{
+    /* Flexbox vertical centralizado */
+    display: flex;
+    flex-direction: column;
+    align-items: center;       /* Centraliza os filhos horizontalmente no meio exato */
+    justify-content: center;   /* Centraliza verticalmente caso haja espaço */
+    
+    /* Tamanhos proporcionais */
+    width: 320px;              
+    margin: 30px auto;         /* Centraliza o bloco na página */
+    padding: 40px 20px;        /* Espaço interno em cima/baixo e laterais */
+    
+    /* Estética Neon */
+    border: 2px solid var(--cor-principal, #ff0055);
+    border-radius: 16px;
+    background-color: rgba(0, 0, 0, 0.9);
+    box-shadow: 0 0 15px var(--cor-principal, #ff0055);
+}
+
+/* Força todos os textos e rótulos de dentro a ficarem no centro exato */
+#registro label, 
+#registro p, 
+#registro h2, 
+#registro h3 {
+    text-align: center;
+    width: 100%;
+    margin-bottom: 8px;
+}
+
+/* Ajusta os inputs e o botão para ocuparem o mesmo espaço alinhado */
+#registro input, 
+#registro button {
+    width: 85%;                /* Deixa uma margem lateral elegante dentro do card */
+    margin-bottom: 20px;       /* Espaçamento uniforme entre os campos */
+    padding: 12px;
+    box-sizing: border-box;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+#login label, 
+#login p, 
+#login h2, 
+#login h3 {
+    text-align: center;
+    width: 100%;
+    margin-bottom: 8px;
+}
+
+/* Ajusta os inputs e o botão para ocuparem o mesmo espaço alinhado */
+#login input, 
+#login button {
+    width: 85%;                /* Deixa uma margem lateral elegante dentro do card */
+    margin-bottom: 20px;       /* Espaçamento uniforme entre os campos */
+    padding: 12px;
+    box-sizing: border-box;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
