@@ -4,6 +4,8 @@ window.addEventListener("load", function() {
     const senhaCadastrada = localStorage.getItem("senhaSalva");
 
     if (emailCadastrado && senhaCadastrada) {
+        document.getElementById("registro").classList.add("escondido");
+        document.getElementById("login").classList.remove("escondido");
         document.getElementById("log_user").value = emailCadastrado;
         document.getElementById("log_pswrd").value = senhaCadastrada;
     }
@@ -53,43 +55,6 @@ document.getElementById("btn_sair").addEventListener("click", function(event){
     //limpa os campos de login
     document.getElementById("log_user").value = "";
     document.getElementById("log_pswrd").value = "";
-});
-
-//calculadora dy
-document.getElementById("calculadora").addEventListener("click", function(){
-    let preco = parseFloat(document.getElementById("preco").value);
-    let dividendo = parseFloat(document.getElementById("dividendo").value);
-    if (isNaN(preco)|| isNaN(dividendo)||preco<=0){
-        document.getElementById("resultado-dy").innerHTML = 
-         "<span style='color:#ef4444;'>Por favor insira somente valores numericos validos!</span>";
-         return;      
-    }
-    let DY = (dividendo/preco) * 100;
-    document.getElementById("resultado-dy").innerHTML = 
-     `Dividend Yield: <strong style='color:#a855f7;'>${DY.toFixed(2)}%</strong>`;
-});
-
-//calculadora p/vp
-document.getElementById("calculadora2").addEventListener("click", function(){
-    let precotexto = document.getElementById("preco-pvp").value.replace(",",".");
-    let vptexto = document.getElementById("vp").value.replace(",",".");
-    let preco = parseFloat(precotexto);
-    let vp = parseFloat(vptexto);
-    if (isNaN(preco)|| isNaN(vp)||vp<=0){
-        document.getElementById("resultado-pvp").innerHTML =
-        "<span style='color:#ef4444;'>Por favor, insira valores numericos validos!</span>";
-        return;
-    }
-    let pvp = preco / vp;
-    let mensagemExtra = "";
-    if(pvp < 1){
-        mensagemExtra = "<span style='font-size:0.85em; color:#22c55e;'>(Abaixo do VP)</span>";
-    } else if (pvp > 1){
-        mensagemExtra = "<span style='font-size:0.85em; color:#eab308;'>(Acima do VP)</span>";
-    } else {
-        mensagemExtra = "<span style='font-size:0.85em; color:#eab308;'>(Ta otimo)</span>";
-    }
-    document.getElementById("resultado-pvp").innerHTML = `P/VP: <strong style='color: #a855f7;'>${pvp.toFixed(2)}</strong>${mensagemExtra}`;
 });
 
 // --- FUNÇÃO PARA CRIAR E DESENHAR A NOTA NA TELA ---
